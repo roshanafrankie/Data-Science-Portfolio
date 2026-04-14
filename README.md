@@ -13,6 +13,7 @@ As a career changer moving from Biological Sciences to Statistics, I use these p
 | :--- | :--- | :--- | :--- |
 | **[Covid-19 Diagnostic Hub](./Covid_Project)** | Deep Learning | Python, TensorFlow, Streamlit | ✅ Completed |
 | **[Leaf Disease Identification](./Leaf%20Disease)** | Deep Learning | Python, TensorFlow, Tkinter | ✅ Completed |
+| **[Diabetes Prediction](./Diabetes%20Prediction)** | Deep Learning | Python, TensorFlow | ✅ Completed |
 
 ---
 
