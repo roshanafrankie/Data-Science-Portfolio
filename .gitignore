@@ -11,8 +11,8 @@ wheels/
 venv/
 
 # Large Files & Data (Keep your repo light!)
-**/Dataset/
-**/single_pred/
 *.h5
 *.pth
 *.keras
+**/Dataset/
+**/single_pred/
