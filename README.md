@@ -11,7 +11,8 @@ As a career changer moving from Biological Sciences to Statistics, I use these p
 
 | Project | Category | Tech Stack | Status |
 | :--- | :--- | :--- | :--- |
-| **[Covid-19 Diagnostic Hub](./Covid_Project)** | Deep Learning / Med-Tech | Python, TensorFlow, Streamlit | ✅ Completed |
+| **[Covid-19 Diagnostic Hub](./Covid_Project)** | Deep Learning | Python, TensorFlow, Streamlit | ✅ Completed |
+| **[Leaf Disease Identification](./Leaf Diesease)** | Deep Learning | Python, TensorFlow, Tkinter | ✅ Completed |
 
 ---
 
@@ -23,13 +24,3 @@ As a career changer moving from Biological Sciences to Statistics, I use these p
 - **Data Management:** SQL, MySQL
 
 ---
-
-## 📂 Repository Structure
-
-To keep things organized, each project is contained in its own folder with its own environment settings:
-
-```text
-.
-├── Covid_Project/        
-├── .gitignore            
-└── README.md             
