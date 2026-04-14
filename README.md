@@ -12,7 +12,7 @@ As a career changer moving from Biological Sciences to Statistics, I use these p
 | Project | Category | Tech Stack | Status |
 | :--- | :--- | :--- | :--- |
 | **[Covid-19 Diagnostic Hub](./Covid_Project)** | Deep Learning | Python, TensorFlow, Streamlit | ✅ Completed |
-| **[Leaf Disease Identification](./Leaf Diesease)** | Deep Learning | Python, TensorFlow, Tkinter | ✅ Completed |
+| **[Leaf Disease Identification](./Leaf Disease)** | Deep Learning | Python, TensorFlow, Tkinter | ✅ Completed |
 
 ---
 
