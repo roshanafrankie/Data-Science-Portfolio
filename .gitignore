@@ -1,0 +1,18 @@
+# Python-generated files
+**/__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments (the **/ ensures it finds .venv inside Covid_Project)
+**/.venv/
+venv/
+
+# Large Files & Data (Keep your repo light!)
+**/Dataset/
+**/single_pred/
+*.h5
+*.pth
+*.keras
