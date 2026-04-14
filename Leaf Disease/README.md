@@ -19,4 +19,4 @@ The core of this project is a **Convolutional Neural Network (CNN)** trained to 
 
 ## 📊 Evaluation
 The model's performance was validated using a confusion matrix to track precision and recall across all categories.
-![Confusion Matrix](Confusion_Matrix.png)
+![Confusion Matrix](Confusion%20Matrix.png)
