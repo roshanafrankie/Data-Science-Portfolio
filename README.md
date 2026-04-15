@@ -15,6 +15,7 @@ As a career changer moving from Biological Sciences to Statistics, I use these p
 | **[Leaf Disease Identification](./Leaf%20Disease)** | Deep Learning | Python, TensorFlow, Tkinter | ✅ Completed |
 | **[Diabetes Prediction](./Diabetes%20Prediction)** | Deep Learning | Python, TensorFlow | ✅ Completed |
 | **[Titanic Survival Prediction](./Titanic%20Survival)** | Machine Learning | Python, TensorFlow | ✅ Completed |
+| **[Heart Disease Prediction](./Heart%20Disease)** | Machine Learning | Python, TensorFlow | ✅ Completed |
 ---
 
 ## 📊 Core Skills
