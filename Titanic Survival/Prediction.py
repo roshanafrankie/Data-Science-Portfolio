@@ -1,37 +1,65 @@
 import pandas as pd
 import numpy as np
 import warnings
+from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import ColumnTransformer
+from sklearn.model_selection import train_test_split
+
 warnings.filterwarnings('ignore')
 
-df=pd.read_csv('titanic.csv')    #to read the file
+df = pd.read_csv('titanic.csv')
 
-##Replacing Null
 df["Age"] = df["Age"].fillna(df["Age"].median())
 df["Embarked"] = df["Embarked"].fillna(df["Embarked"].mode()[0])
 
-from sklearn.preprocessing import LabelEncoder
-le = LabelEncoder()
+X = df.drop(columns=['Survived', 'Name', 'PassengerId', 'Ticket', 'Cabin'])
+y = df['Survived']
 
-df['Sex'] = le.fit_transform(df['Sex'])
-df['Embarked'] = le.fit_transform(df['Embarked'])
+ct = ColumnTransformer(
+    transformers=[
+        ('encoder', OneHotEncoder(), ['Sex', 'Embarked'])
+    ], 
+    remainder='passthrough'
+)
 
-x=df.drop(columns=['Survived','Name','PassengerId','Ticket','Cabin'])
-y=df['Survived']      #to create the variable
+X_transformed = ct.fit_transform(X)
 
-from sklearn.model_selection import train_test_split
-x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=12)   #split the val
+x_train, x_test, y_train, y_test = train_test_split(X_transformed, y, test_size=0.2, random_state=12)
 
-from sklearn.naive_bayes import GaussianNB  
-NB = GaussianNB()
+log_model = LogisticRegression(max_iter=1000)
+log_model.fit(x_train, y_train)
 
-NB.fit(x_train, y_train)
+def get_user_input_and_predict():
+    print("\n" + "="*20 + " TITANIC SURVIVAL PREDICTOR (ONE-HOT + LOG) " + "="*20)
+    try:
+        pclass = int(input("Enter Pclass (1, 2, or 3): "))
+        sex = input("Enter Sex (male or female): ").strip().lower()
+        age = float(input("Enter Age: "))
+        sibsp = int(input("Enter Siblings/Spouses aboard: "))
+        parch = int(input("Enter Parents/Children aboard: "))
+        fare = float(input("Enter Fare: "))
+        embarked = input("Enter Embarked Port (C, Q, or S): ").strip().upper()
 
-y_pred=NB.predict(x_test)
+        feature_cols = ['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare', 'Embarked']
+        input_data = [pclass, sex, age, sibsp, parch, fare, embarked]
+        input_df = pd.DataFrame([input_data], columns=feature_cols)
 
-#['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare', 'Embarked']
+        print("\n" + "-"*15 + " YOUR RAW INPUT DATA " + "-"*15)
+        print(input_df.to_string(index=False))
+        print("-" * 52)
 
-testPrediction = NB.predict([[3,0,22.0,1,1,6,2]])
-if testPrediction==1:
-    print("Survived")
-else:
-    print("Not survived")
+        input_encoded = ct.transform(input_df)
+
+        prediction = log_model.predict(input_encoded)
+        probability = log_model.predict_proba(input_encoded)[0][1]
+
+        result = "✅ SURVIVED" if prediction[0] == 1 else "❌ NOT SURVIVED"
+        print(f"\nFINAL PREDICTION: {result}")
+        print(f"SURVIVAL CHANCE: {round(probability * 100, 2)}%")
+        print("="*52)
+
+    except Exception as e:
+        print(f"\nError: {e}. Please ensure inputs are valid.")
+
+get_user_input_and_predict()
